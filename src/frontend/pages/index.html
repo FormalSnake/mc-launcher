@@ -10,12 +10,25 @@
       <h1>Minecraft Launcher</h1>
     </header>
     <footer>
+      <select id="version-selector">
+        <option value="1.19.3">1.19</option>
+        <option value="1.18.2">1.18</option>
+        <option value="1.17.1">1.17</option>
+        <option value="1.16.5">1.16</option>
+        <option value="1.15.2">1.15</option>
+        <option value="1.14.4">1.14</option>
+        <option value="1.13.2">1.13</option>
+        <option value="1.12.2">1.12</option>
+      </select>
       <button id="playbtn">Play!</button>
     </footer>
     <script>
+      const versionSelector = document.getElementById("version-selector");
+
       document.getElementById("playbtn").onclick = function () {
         const { ipcRenderer } = require("electron");
-        ipcRenderer.send("minecraft");
+        const selectedVersion = versionSelector.value;
+        ipcRenderer.send("minecraft", selectedVersion);
       };
     </script>
   </body>

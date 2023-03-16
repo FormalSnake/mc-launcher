@@ -63,11 +63,11 @@ app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
 
-ipcMain.on("minecraft", (event, arg) => {
-  launchMinecraft();
+ipcMain.on("minecraft", (event, version) => {
+  launchMinecraft(version);
 });
 
-function launchMinecraft() {
+function launchMinecraft(version) {
   //Launch using the 'raw' gui framework (can be 'electron' or 'nwjs')
   authManager.launch("electron").then(async (xboxManager) => {
     //Generate the minecraft login token
@@ -79,7 +79,7 @@ function launchMinecraft() {
       authorization: token.mclc(),
       root: "./.minecraft",
       version: {
-        number: "1.19.3",
+        number: version.toString(),
         type: "release",
       },
       memory: {

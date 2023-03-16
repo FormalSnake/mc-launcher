@@ -1,6 +1,12 @@
 /* Set the background color of the page to black */
 body {
   background-color: #202020;
+  background-image: url("../assets/images/wallpaper1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  margin: 0px;
 }
 
 /* Set the color of all text to white */
@@ -30,7 +36,8 @@ header {
   width: 100vw;
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
   left: 0;
   top: 0;
 }
@@ -44,13 +51,14 @@ footer {
   align-items: center;
   position: fixed;
   bottom: 0;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
   left: 0;
 }
 
 /* Style the button to have a Minecraft green background */
 button {
-  background-color: #7cfc00;
+  background-color: rgba(20, 20, 20, 0.6);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -61,7 +69,7 @@ button {
 
 /* Add a hover effect to the button */
 button:hover {
-  background-color: #9acd32;
+  background-color: rgba(50, 50, 50, 0.6);
   transform: scale(1.05);
   box-shadow: 0px 0px 10px #000; /* Add a subtle box-shadow effect */
 }
