@@ -1,0 +1,79 @@
+/* Set the background color of the page to black */
+body {
+  background-color: #202020;
+}
+
+/* Set the color of all text to white */
+body,
+h1,
+button {
+  color: #fff;
+}
+
+/* Import the Silkscreen font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+
+/* Set the font family of the h1 and button elements to Silkscreen */
+h1,
+button {
+  font-family: "Silkscreen", sans-serif;
+  text-align: center;
+}
+
+/* Set the header to be centered with a fixed height */
+header {
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  background-color: #000;
+  left: 0;
+  top: 0;
+}
+
+/* Set the footer to be centered with a fixed height */
+footer {
+  height: 85px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: #000;
+  left: 0;
+}
+
+/* Style the button to have a Minecraft green background */
+button {
+  background-color: #7cfc00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-out; /* Add a smoother transition */
+}
+
+/* Add a hover effect to the button */
+button:hover {
+  background-color: #9acd32;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px #000; /* Add a subtle box-shadow effect */
+}
+
+/* Center the title and add a margin to the top */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Center the button */
+button {
+  display: block;
+  margin: 0 auto;
+}

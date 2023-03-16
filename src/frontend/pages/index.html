@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Minecraft Launcher</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Minecraft Launcher</h1>
+    </header>
+    <footer>
+      <button id="playbtn">Play!</button>
+    </footer>
+    <script>
+      document.getElementById("playbtn").onclick = function () {
+        const { ipcRenderer } = require("electron");
+        ipcRenderer.send("minecraft");
+      };
+    </script>
+  </body>
+</html>

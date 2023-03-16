@@ -1,0 +1,19 @@
+{
+  "name": "minecraft-launcher",
+  "version": "1.0.0",
+  "description": "A Minecraft launcher built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^23.1.4"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "minecraft-launcher-core": "^3.16.18",
+    "msmc": "^4.0.3"
+  }
+}
