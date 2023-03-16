@@ -1,11 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const { spawn } = require("child_process");
 const { Client } = require("minecraft-launcher-core");
+const path = require("path");
 const launcher = new Client();
 //Import the auth class
 const { auth } = require("msmc");
 //Create a new auth manager
 const authManager = new auth("select_account");
+// This is the auto updater that updates the application when a new version comes out.
+const { autoUpdater } = require("electron-updater");
 const windowStateKeeper = require("electron-window-state");
 let mainWindow;
 
@@ -37,10 +40,23 @@ function createWindow() {
   mainWindowState.manage(mainWindow);
 
   // and load the index.html of the app.
-  mainWindow.loadFile("./src/frontend/pages/index.html");
+  mainWindow.loadURL(`file://${__dirname}/src/frontend/pages/index.html`);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+  //  // This checks if there is a new version available, and notifies it to the process
+  autoUpdater.checkForUpdatesAndNotify();
+  // When there is an update available, it changes the window to the updating screen
+  autoUpdater.on("update-available", function () {
+    mainWindow.loadURL(`file://${__dirname}/src/frontend/pages/updater.html`);
+  });
+  // When the update has been downloaded, it quits the application and installs it
+  autoUpdater.on("update-downloaded", (updateInfo) => {
+    setTimeout(() => {
+      autoUpdater.quitAndInstall();
+      app.exit();
+    }, 10000);
+  });
 }
 
 // This method will be called when Electron has finished

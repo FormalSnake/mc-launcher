@@ -4,14 +4,20 @@
   "description": "A Minecraft launcher built with Electron",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
-  "author": "Your Name",
+  "author": "FormalSnake",
   "license": "MIT",
+  "build": {
+    "appId": "com.kyandesutter.mclauncher"
+  },
   "devDependencies": {
     "electron": "^23.1.4"
   },
   "dependencies": {
+    "electron-builder": "^23.6.0",
+    "electron-updater": "^5.3.0",
     "electron-window-state": "^5.0.3",
     "minecraft-launcher-core": "^3.16.18",
     "msmc": "^4.0.3"
