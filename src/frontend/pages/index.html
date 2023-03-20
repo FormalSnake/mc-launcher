@@ -9,9 +9,10 @@
     <header>
       <h1>Minecraft Launcher</h1>
     </header>
+    <div id="console"></div>
     <footer>
       <select id="version-selector">
-        <option value="1.19.3">1.19</option>
+        <option value="1.19.4">1.19</option>
         <option value="1.18.2">1.18</option>
         <option value="1.17.1">1.17</option>
         <option value="1.16.5">1.16</option>
@@ -24,10 +25,14 @@
     </footer>
     <script>
       const versionSelector = document.getElementById("version-selector");
-
+      const { ipcRenderer } = require("electron");
+      const consoleElement = document.getElementById("console");
+      ipcRenderer.on("asynchronous-message", function (evt, message) {
+        consoleElement.innerHTML += message + "<br />";
+      });
       document.getElementById("playbtn").onclick = function () {
-        const { ipcRenderer } = require("electron");
         const selectedVersion = versionSelector.value;
+        consoleElement.innerHTML = "";
         ipcRenderer.send("minecraft", selectedVersion);
       };
     </script>

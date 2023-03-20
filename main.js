@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, remote } = require("electron");
 const { spawn } = require("child_process");
 const { Client } = require("minecraft-launcher-core");
 const path = require("path");
@@ -80,10 +80,10 @@ app.on("window-all-closed", function () {
 });
 
 ipcMain.on("minecraft", (event, version) => {
-  launchMinecraft(version);
+  launchMinecraft(version, event);
 });
 
-function launchMinecraft(version) {
+function launchMinecraft(version, event) {
   //Launch using the 'raw' gui framework (can be 'electron' or 'nwjs')
   authManager.launch("electron").then(async (xboxManager) => {
     //Generate the minecraft login token
@@ -105,8 +105,7 @@ function launchMinecraft(version) {
     };
     console.log("Starting!");
     launcher.launch(opts);
-
     launcher.on("debug", (e) => console.log(e));
-    launcher.on("data", (e) => console.log(e));
+    launcher.on("data", (e) => event.sender.send("asynchronous-message", e));
   });
 }

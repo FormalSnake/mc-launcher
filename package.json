@@ -1,6 +1,6 @@
 {
   "name": "minecraft-launcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Minecraft launcher built with Electron",
   "main": "main.js",
   "scripts": {
@@ -13,10 +13,10 @@
     "appId": "com.kyandesutter.mclauncher"
   },
   "devDependencies": {
-    "electron": "^23.1.4"
+    "electron": "^23.1.4",
+    "electron-builder": "^23.6.0"
   },
   "dependencies": {
-    "electron-builder": "^23.6.0",
     "electron-updater": "^5.3.0",
     "electron-window-state": "^5.0.3",
     "minecraft-launcher-core": "^3.16.18",
