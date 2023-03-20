@@ -11,6 +11,7 @@ const authManager = new auth("select_account");
 const { autoUpdater } = require("electron-updater");
 const windowStateKeeper = require("electron-window-state");
 let mainWindow;
+const home = app.getPath("home");
 
 function createWindow() {
   // Load the previous state with fallback to defaults
@@ -93,7 +94,7 @@ function launchMinecraft(version, event) {
       clientPackage: null,
       // Simply call this function to convert the msmc minecraft object into a mclc authorization object
       authorization: token.mclc(),
-      root: "./.minecraft",
+      root: `${home}/.minecraft`,
       version: {
         number: version.toString(),
         type: "release",
